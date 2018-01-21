@@ -56,20 +56,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         final GridView gridview = (GridView) findViewById(R.id.gridview);
         final ButtonAdapter adapter = new ButtonAdapter(this);
         gridview.setAdapter(adapter);
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             adapter.getSelectedItem(position).play();
-                //adapter.musicButtonLists.get(position).play();
-            Log.e("adapteris", position + adapter.getSelectedItem(position).audioFileUri.toString());
-                Toast.makeText(MainActivity.this, MainActivity.AudioFile.values()[position].link.toString() , Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(MainActivity.this, MainActivity.AudioFile.values()[position].link.toString() , Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -18,7 +18,7 @@ import java.io.IOException;
 public class MusicButton extends AppCompatButton {
     public Uri audioFileUri;
     public MediaPlayer mediaPlayer= new MediaPlayer();
-   public Context context;
+    public Context context;
     public MusicButton(Context context) {
         super(context, null);
         this.context = context;
@@ -39,12 +39,8 @@ public class MusicButton extends AppCompatButton {
     }
 
     public void setAudioFileUri(Uri audioFileUris){
-
-
-            audioFileUri = audioFileUris;
-
+        audioFileUri = audioFileUris;
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
        try {
             mediaPlayer.setDataSource(context, audioFileUris);
             mediaPlayer.prepare();
@@ -52,9 +48,6 @@ public class MusicButton extends AppCompatButton {
         catch(IOException x){
            Log.e("exceptionas", "lalala");
         }
-        //mediaPlayer.start();
-
-         //   mediaPlayer = MediaPlayer.create(getContext(), audioFileUris);
     }
 
 }
